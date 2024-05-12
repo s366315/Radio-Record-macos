@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
     branches: [ "main" ]
 
 jobs:
@@ -50,12 +50,12 @@ jobs:
           --window-size 800 400 \
           --icon-size 100 \
           --app-drop-link 600 185 \
-          Radio\ Record.dmg $(pwd)/DerivedData/Build/Products/Release/Record\ Player.app;
+          "Radio Record_1.0.1.dmg" $(pwd)/DerivedData/Build/Products/Release/Record\ Player.app;
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: "Radio Record"
-          path: Radio Record.dmg
+          path: Radio Record_1.0.1.dmg
          
   release:
     needs: build
@@ -73,6 +73,6 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: 1.0.0
-        files: Radio Record.dmg
+        tag_name: 1.0.1
+        files: Radio Record_1.0.1.dmg
         

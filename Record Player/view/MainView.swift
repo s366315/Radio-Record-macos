@@ -23,6 +23,7 @@ struct MainView: View {
     }
     
     var body: some View {
+<<<<<<< HEAD:Record Player/view/MainView.swift
         NavigationSplitView(columnVisibility: $presenter.songPanelIsShowing) {
             VStack() {
                 if presenter.stationState != nil {
@@ -33,6 +34,48 @@ struct MainView: View {
                             Image("DefaultTrack_600")
                                 .resizable()
                         }
+=======
+        List(presenter.filteredStations, id: \.id) { station in
+            StationItem(
+                id: station.id,
+                title: station.title,
+                artist: station.artist,
+                song: station.song,
+                svg: station.svg,
+                isFav: false,
+                onFav: presenter.onSetFav
+            ).contentShape(Rectangle())
+                .onTapGesture {
+                    isPlaying = true
+                    windowTitleState = "Record - \(station.title)"
+                    playerPlay(station: presenter.onStationClick(station: station))
+                }
+        }
+        .onAppear { presenter.onAppear() }
+        .onChange(of: volumeState, perform: setPlayerVolume)
+        .onChange(of: shortcutState) { newValue in
+            print(newValue)
+            if (newValue == Shortcuts.up) {
+                setPlayerVolume(to: volumeState + 0.1)
+            }
+            if (newValue == Shortcuts.up) {
+                setPlayerVolume(to: volumeState - 0.1)
+            }
+        }
+        .focusable()
+        .focusEffectDisabled()
+        .onKeyPress(keys: [.space]) { press in
+            isPlaying ? player.pause() : player.play()
+            isPlaying = !isPlaying
+            return .handled
+        }
+        .navigationTitle(windowTitleState)
+        .toolbar{
+            ToolbarItemGroup(placement: .primaryAction) {
+                Picker("Select categorie", selection: $selection) {
+                    ForEach(categories, id: \.self) {
+                        Text($0)
+>>>>>>> main:Record Player/view/ContentView.swift
                     }
                     .frame(width: songCoverWH, height: songCoverWH)
                     .scaledToFit()
@@ -92,9 +135,14 @@ struct MainView: View {
                     Button(action: presenter.onPlayClick) {
                         Label("Play", systemImage: "play.fill")
                     }
+<<<<<<< HEAD:Record Player/view/MainView.swift
                     Slider(value: $presenter.volumeState, in: 0...1)
                         .frame(width: 100)
                 }
+=======
+                Slider(value: $volumeState, in: 0...1)
+                    .frame(width: 100)
+>>>>>>> main:Record Player/view/ContentView.swift
             }
         }
     }

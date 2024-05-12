@@ -16,6 +16,7 @@
 		4442DB2F2BDC4F3A00C25DE1 /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442DB2E2BDC4F3A00C25DE1 /* StationData.swift */; };
 		4450D0FA2BE9801C00C91D6E /* ObserveEquals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4450D0F92BE9801C00C91D6E /* ObserveEquals.swift */; };
 		445444C62BD661EC00E7EA48 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = 445444C52BD661EC00E7EA48 /* README.MD */; };
+		449821F42BEC16E10095E6B9 /* StationsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449821F32BEC16E10095E6B9 /* StationsMap.swift */; };
 		449A61D82BD59F1600EFC421 /* Record_PlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449A61D72BD59F1600EFC421 /* Record_PlayerApp.swift */; };
 		449A61DA2BD59F1600EFC421 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449A61D92BD59F1600EFC421 /* MainView.swift */; };
 		449A61DC2BD59F1700EFC421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449A61DB2BD59F1700EFC421 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		4442DB2E2BDC4F3A00C25DE1 /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
 		4450D0F92BE9801C00C91D6E /* ObserveEquals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveEquals.swift; sourceTree = "<group>"; };
 		445444C52BD661EC00E7EA48 /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
+		449821F32BEC16E10095E6B9 /* StationsMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsMap.swift; sourceTree = "<group>"; };
 		449A61D42BD59F1600EFC421 /* Record Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Record Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		449A61D72BD59F1600EFC421 /* Record_PlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record_PlayerApp.swift; sourceTree = "<group>"; };
 		449A61D92BD59F1600EFC421 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -74,7 +76,11 @@
 			isa = PBXGroup;
 			children = (
 				44397A2D2BD6734B0056BE98 /* Dimensions.swift */,
+<<<<<<< HEAD
 				4450D0F92BE9801C00C91D6E /* ObserveEquals.swift */,
+=======
+				449821F32BEC16E10095E6B9 /* StationsMap.swift */,
+>>>>>>> main
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -253,9 +259,14 @@
 				44C4C8DE2BE4422900719007 /* SVGWebView.swift in Sources */,
 				4442DB2F2BDC4F3A00C25DE1 /* StationData.swift in Sources */,
 				44F62D052BD66E1100651C8D /* StationItem.swift in Sources */,
+<<<<<<< HEAD
 				4450D0FA2BE9801C00C91D6E /* ObserveEquals.swift in Sources */,
 				44D7BA2A2BEFAE4A0054126A /* MainState.swift in Sources */,
 				449A61DA2BD59F1600EFC421 /* MainView.swift in Sources */,
+=======
+				449821F42BEC16E10095E6B9 /* StationsMap.swift in Sources */,
+				449A61DA2BD59F1600EFC421 /* ContentView.swift in Sources */,
+>>>>>>> main
 				449A61D82BD59F1600EFC421 /* Record_PlayerApp.swift in Sources */,
 				4407FDDF2BD6C76F004D477C /* NowResponseModel.swift in Sources */,
 				44004D342BD9256600D0447A /* Shortcuts.swift in Sources */,
@@ -409,7 +420,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 1.1.0;
+=======
+				MARKETING_VERSION = 1.0.1;
+>>>>>>> main
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hornsandhoofs.Record-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -441,7 +456,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 1.1.0;
+=======
+				MARKETING_VERSION = 1.0.1;
+>>>>>>> main
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hornsandhoofs.Record-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

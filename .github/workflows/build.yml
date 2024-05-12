@@ -1,0 +1,26 @@
+name: Build
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Unsigned Release
+        run: |
+          xcodebuild build \
+            -CODE_SIGNING_ALLOWED=NO \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -derivedDataPath DerivedData \
+            -configuration Release;
+        env:
+          PROJECT: Record Player.xcodeproj
+          SCHEME: Record Player
