@@ -13,10 +13,7 @@ struct MainView: View {
     
     @ObservedObject var presenter: MainPresenter
     
-    @State private var isPlaying: Bool = false
-    @State private var selection = "All"
-    
-    private let categories = ["All", "Favourites"]
+    private let categories: [FavouritesType] = [.all, .favourites]
     
     init(presenter: MainPresenter) {
         self.presenter = presenter
@@ -30,8 +27,7 @@ struct MainView: View {
                         if let image = image.image {
                             image.resizable()
                         } else if image.error != nil {
-                            Image("DefaultTrack_600")
-                                .resizable()
+                            Image("DefaultTrack_600").resizable()
                         }
                     }
                     .frame(width: songCoverWH, height: songCoverWH)
@@ -59,7 +55,7 @@ struct MainView: View {
                     artist: station.artist,
                     song: station.song,
                     svg: station.svg,
-                    isFav: false,
+                    isFav: station.isFav,
                     onFav: presenter.onSetFav
                 )
                 .contentShape(Rectangle())
@@ -76,13 +72,13 @@ struct MainView: View {
             .navigationTitle(presenter.windowTitleState)
             .toolbar{
                 ToolbarItemGroup(placement: .primaryAction) {
-                    /*Picker("Select categorie", selection: $selection) {
+                    Picker("Select categorie", selection: $presenter.favouriteSelection) {
                         ForEach(categories, id: \.self) {
-                            Text($0)
+                            Text($0.rawValue)
                         }
                     }
-                    .disabled(true)
-                    .pickerStyle(.menu)*/
+                    .pickerStyle(.menu)
+                    .onChange(of: presenter.favouriteSelection, { presenter.onListTypeChange() })
                     TextField("Filter", text: $presenter.searchText)
                         .frame(width: 100)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -102,4 +98,9 @@ struct MainView: View {
 
 #Preview {
     MainView(presenter: MainPresenter())
+}
+
+enum FavouritesType: String {
+    case all = "All"
+    case favourites = "Favourites"
 }

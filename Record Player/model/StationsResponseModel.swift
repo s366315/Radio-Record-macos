@@ -21,14 +21,15 @@ struct StationResultModel: Codable {
 }
 
 extension StationModel {
-    func map() -> StationData {
+    func map(_ favs: [Int]) -> StationData {
+        let isFav = favs.contains(id)
         return StationData(id: id,
                            title: self.title,
                            prefix: self.prefix,
                            svg: "",//self.svg_outline,
                            artist: String(),
                            song: String(),
-                           isFav: false,
+                           isFav: isFav,
                            image: String(),
                            shareUrl: String()
         )
