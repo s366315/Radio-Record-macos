@@ -6,13 +6,13 @@
 //
 
 struct StationData: Equatable, Hashable {
-    let id: Int
-    let title: String
-    let prefix: String
-    let svg: String
-    let artist: String
-    let song: String
+    var id: Int
+    var title: String
+    var prefix: String
+    var svg: String
+    var artist: String
+    var song: String
     var isFav: Bool
-    let image: String
-    let shareUrl: String
+    var image: String
+    var shareUrl: String
 }

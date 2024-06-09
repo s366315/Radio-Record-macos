@@ -78,7 +78,7 @@ struct MainView: View {
                         }
                     }
                     .pickerStyle(.menu)
-                    .onChange(of: presenter.favouriteSelection, { presenter.onListTypeChange() })
+                    .onChange(of: presenter.favouriteSelection, { })
                     TextField("Filter", text: $presenter.searchText)
                         .frame(width: 100)
                         .textFieldStyle(RoundedBorderTextFieldStyle())

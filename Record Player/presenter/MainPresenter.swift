@@ -121,10 +121,6 @@ public class MainPresenter: ObservableObject {
         favouritesArray = array
     }
     
-    func onListTypeChange() {
-        //бесполезна функция. зачем делал - не помню ¯\_(ツ)_/¯
-    }
-    
     func onHotkeyPressed(shortcutState: Shortcuts) {
         let shortcutState = shortcutState
         
@@ -206,7 +202,6 @@ public class MainPresenter: ObservableObject {
         } else {
             "record-\(stationsMap[station.prefix] ?? "")"
         }
-        print(prefix)
         return "https://hls-01-radiorecord.hostingradio.ru/\(prefix)/playlist.m3u8"
     }
     
@@ -220,20 +215,13 @@ public class MainPresenter: ObservableObject {
                 DispatchQueue.main.async {
                     let now = posts.result
                     
-                    self.data = self.data.map { item in
-                        let newItem = now.first(where: { $0.id == item.id})?.track
+                    for index in 0..<self.data.count {
+                        let newItem = now.first(where: { $0.id == self.data[index].id})?.track
                         
-                        return StationData(
-                            id: item.id,
-                            title: item.title,
-                            prefix: item.prefix,
-                            svg: item.svg,
-                            artist: newItem?.artist ?? String(),
-                            song: newItem?.song ?? String(),
-                            isFav: item.isFav,
-                            image: newItem?.image200 ?? String(),
-                            shareUrl: newItem?.shareUrl ?? String()
-                        )
+                        self.data[index].artist = newItem?.artist ?? String()
+                        self.data[index].song = newItem?.song ?? String()
+                        self.data[index].image = newItem?.image200 ?? String()
+                        self.data[index].shareUrl = newItem?.shareUrl ?? String()
                     }
                     
                     self.updateCurrentTrack()
